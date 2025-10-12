@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo Bader - Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary-color: #f59e0b; /* Amber-500 */
+            --primary-color-hover: #d97706; /* Amber-600 */
+            --bg-color: #111827; /* Gray-900 */
+            --card-bg-color: #1f2937; /* Gray-800 */
+            --border-color: rgba(245, 158, 11, 0.15);
+            --text-primary: #f9fafb; /* Gray-50 */
+            --text-secondary: #9ca3af; /* Gray-400 */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-secondary);
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
+            background-size: 25px 25px;
+        }
+
+        .card {
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .skill-tag {
+            background-color: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            color: #fbbf24; /* Amber-400 */
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background-color: rgba(245, 158, 11, 0.2);
+            color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(245, 158, 11, 0.1);
+        }
+        
+        .section-title {
+            color: var(--text-primary);
+        }
+
+        /* Scroll reveal animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div class="relative z-10">
+        <!-- Header / Nav -->
+        <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <div class="flex-shrink-0">
+                        <a href="#hero" class="text-2xl font-bold text-amber-400">EB.</a>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-6">
+                            <a href="#about" class="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Sobre mí</a>
+                            <a href="#experience" class="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Experiencia</a>
+                            <a href="#skills" class="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Habilidades</a>
+                            <a href="#contact" class="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Contacto</a>
+                        </div>
+                    </div>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                            <i id="menu-icon" data-lucide="menu" class="h-6 w-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+            <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#about" class="text-gray-300 hover:text-amber-400 block px-3 py-2 rounded-md text-base font-medium">Sobre mí</a>
+                    <a href="#experience" class="text-gray-300 hover:text-amber-400 block px-3 py-2 rounded-md text-base font-medium">Experiencia</a>
+                    <a href="#skills" class="text-gray-300 hover:text-amber-400 block px-3 py-2 rounded-md text-base font-medium">Habilidades</a>
+                    <a href="#contact" class="text-gray-300 hover:text-amber-400 block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <section id="hero" class="min-h-screen flex items-center pt-20 pb-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
+                    <div class="scroll-reveal">
+                        <p class="text-amber-400 font-medium mb-2">Hola, mi nombre es</p>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-50 mb-4">
+                            Eduardo Bader.
+                        </h1>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-400 mb-6">
+                            Construyo soluciones para la web.
+                        </h2>
+                        <p class="text-lg leading-relaxed mb-8 max-w-xl">
+                           Soy un ingeniero de software especializado en backend, enfocado en crear sistemas escalables e integraciones complejas, con un interés especial en la nueva era de la IA.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="https://www.linkedin.com/in/eduardobader/" target="_blank" rel="noopener noreferrer" class="bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3 px-8 rounded-md transition-all duration-300 shadow-lg shadow-amber-500/10">
+                                Ver mi LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center items-center scroll-reveal" style="transition-delay: 200ms;">
+                        <div class="relative w-80 h-80 lg:w-96 lg:h-96">
+                            <div class="absolute inset-0 bg-gray-800 rounded-lg transform rotate-6"></div>
+                            <img src="./yo.jpg" 
+                                 alt="Foto de perfil de Eduardo Bader"
+                                 class="relative w-full h-full object-cover rounded-lg shadow-2xl">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="py-24 scroll-reveal">
+                <h2 class="text-3xl font-bold section-title mb-12">Sobre Mí</h2>
+                <div class="card p-8 rounded-lg">
+                    <p class="text-lg leading-relaxed mb-4">
+                        Mi especialidad es la arquitectura e implementación de soluciones robustas para procesar flujos de datos de alto volumen, garantizando una conectividad perfecta entre plataformas de nivel empresarial.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Poseo experiencia práctica con protocolos de comunicación de IA emergentes, como Agent-to-Agent (A2A) y Model Context Protocol, lo que me permite contribuir al desarrollo de sistemas inteligentes de próxima generación. Me apasiona resolver problemas complejos y crear software eficiente y escalable.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="py-24 scroll-reveal">
+                <h2 class="text-3xl font-bold section-title mb-12">Experiencia Profesional</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card p-6 rounded-lg">
+                        <p class="text-sm text-amber-400 mb-1">Jul 2021 - Actualidad</p>
+                        <h3 class="text-xl font-bold text-gray-50">Software Engineer</h3>
+                        <p class="text-md text-gray-400">Tracestory</p>
+                    </div>
+                    <div class="card p-6 rounded-lg">
+                        <p class="text-sm text-amber-400 mb-1">Feb 2021 - Mar 2024</p>
+                        <h3 class="text-xl font-bold text-gray-50">Backend Engineer</h3>
+                        <p class="text-md text-gray-400">QRoom LLC</p>
+                    </div>
+                     <div class="card p-6 rounded-lg">
+                        <p class="text-sm text-amber-400 mb-1">Ago 2020 - May 2024</p>
+                        <h3 class="text-xl font-bold text-gray-50">Ingeniero de software</h3>
+                        <p class="text-md text-gray-400">NuxtuLabs</p>
+                    </div>
+                     <div class="card p-6 rounded-lg">
+                        <p class="text-sm text-amber-400 mb-1">Ago 2019 - Feb 2021</p>
+                        <h3 class="text-xl font-bold text-gray-50">Freelance Software Engineer</h3>
+                        <p class="text-md text-gray-400">Autónomo</p>
+                    </div>
+                 </div>
+            </section>
+            
+            <!-- Skills Section -->
+            <section id="skills" class="py-24 scroll-reveal">
+                <h2 class="text-3xl font-bold section-title mb-12">Habilidades Principales</h2>
+                <div class="card p-8 rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+                        <div>
+                            <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center"><i data-lucide="code-2" class="w-5 h-5 mr-2"></i>Lenguajes y Frameworks</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Python</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Node.js</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">JavaScript</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Flask</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Pandas</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center"><i data-lucide="database" class="w-5 h-5 mr-2"></i>Bases de Datos</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">MySQL</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">MongoDB</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">PostgreSQL</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Firebase</span>
+                            </div>
+                        </div>
+                        <div>
+                             <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center"><i data-lucide="cloud-cog" class="w-5 h-5 mr-2"></i>Cloud & DevOps</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Amazon Web Services (AWS)</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Google Cloud</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Git</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center"><i data-lucide="puzzle" class="w-5 h-5 mr-2"></i>Otros</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Arquitectura Backend</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Desarrollo de API</span>
+                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Metodologías Ágiles</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Contact & Footer -->
+        <footer id="contact" class="mt-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center scroll-reveal">
+                <h2 class="text-3xl font-bold text-gray-50 mb-4">¿Interesado en colaborar?</h2>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">
+                    Estoy abierto a nuevas oportunidades y me encantaría saber de ti. ¡Envíame un mensaje y empecemos una conversación!
+                </p>
+                <a href="mailto:eduardo.bader@example.com" class="inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3 px-8 rounded-md transition-all duration-300 mb-12 shadow-lg shadow-amber-500/10">
+                    Enviar Email
+                </a>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="https://www.linkedin.com/in/eduardobader/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                        <i data-lucide="linkedin" class="w-7 h-7"></i>
+                    </a>
+                    <a href="https://github.com/elbader17" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">
+                        <i data-lucide="github" class="w-7 h-7"></i>
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm">
+                    &copy; 2024 Eduardo Bader.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // --- Lucide Icons ---
+        lucide.createIcons();
+
+        // --- Mobile Menu ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            menuIcon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
+            lucide.createIcons();
+        });
+        
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                 mobileMenu.classList.add('hidden');
+                 menuIcon.setAttribute('data-lucide', 'menu');
+                 lucide.createIcons();
+            });
+        });
+
+        // --- Header scroll effect ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
+            } else {
+                header.classList.remove('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
+            }
+        });
+
+        // --- Scroll Reveal Animation ---
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    // Optional delay for staggered effect, can be added if needed
+                    // entry.target.style.transitionDelay = `${index * 100}ms`;
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Unobserve after animating
+                }
+            });
+        }, observerOptions);
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>
+
+
