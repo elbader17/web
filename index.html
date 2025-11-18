@@ -1,310 +1,481 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduardo Bader - Software Engineer</title>
+    <title>Eduardo Bader | Senior Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0B0C10',
+                        card: '#1F2833',
+                        primary: '#66FCF1', 
+                        accent: '#45A29E',
+                        gold: '#F59E0B',
+                        goldlight: '#FCD34D',
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --primary-color: #f59e0b; /* Amber-500 */
-            --primary-color-hover: #d97706; /* Amber-600 */
-            --bg-color: #111827; /* Gray-900 */
-            --card-bg-color: #1f2937; /* Gray-800 */
-            --border-color: rgba(245, 158, 11, 0.15);
-            --text-primary: #f9fafb; /* Gray-50 */
-            --text-secondary: #9ca3af; /* Gray-400 */
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-secondary);
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0);
-            background-size: 25px 25px;
-        }
-
-        .card {
-            background-color: var(--card-bg-color);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
+            background-color: #020617; /* Slate 950 */
+            color: #e2e8f0;
+            overflow-x: hidden;
         }
         
-        .card:hover {
-            border-color: rgba(245, 158, 11, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
         }
 
-        .skill-tag {
-            background-color: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            color: #fbbf24; /* Amber-400 */
-            transition: all 0.3s ease;
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .skill-tag:hover {
-            background-color: rgba(245, 158, 11, 0.2);
-            color: var(--primary-color);
-            box-shadow: 0 0 10px rgba(245, 158, 11, 0.1);
-        }
-        
-        .section-title {
-            color: var(--text-primary);
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Scroll reveal animation */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        .text-gradient {
+            background: linear-gradient(to right, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .scroll-reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+
+        /* Background Orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.4;
         }
     </style>
 </head>
 
-<body class="antialiased">
-    <div class="relative z-10">
-        <!-- Header / Nav -->
-        <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
-            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
-                    <div class="flex-shrink-0">
-                        <a href="#hero" class="text-2xl font-bold text-amber-400">EB.</a>
-                    </div>
-                    <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-6">
-                            <a href="#about" class="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Sobre mí</a>
-                            <a href="#experience" class="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Experiencia</a>
-                            <a href="#skills" class="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Habilidades</a>
-                            <a href="#contact" class="text-gray-300 hover:text-amber-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300">Contacto</a>
-                        </div>
-                    </div>
-                    <div class="md:hidden">
-                        <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
-                            <i id="menu-icon" data-lucide="menu" class="h-6 w-6"></i>
-                        </button>
-                    </div>
+<body class="antialiased selection:bg-amber-500/30 selection:text-amber-200">
+
+    <!-- Ambient Background Effects -->
+    <div class="orb w-96 h-96 bg-purple-900/30 top-0 left-0 animate-blob"></div>
+    <div class="orb w-96 h-96 bg-amber-900/20 bottom-0 right-0 animate-blob animation-delay-2000"></div>
+    <div class="orb w-64 h-64 bg-blue-900/20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-blob animation-delay-4000"></div>
+
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 glass-nav" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 cursor-pointer group" onclick="window.scrollTo(0,0)">
+                    <span class="font-heading text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">EB<span class="text-amber-500">.</span></span>
                 </div>
-            </nav>
-            <div id="mobile-menu" class="md:hidden hidden bg-gray-800">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#about" class="text-gray-300 hover:text-amber-400 block px-3 py-2 rounded-md text-base font-medium">Sobre mí</a>
-                    <a href="#experience" class="text-gray-300 hover:text-amber-400 block px-3 py-2 rounded-md text-base font-medium">Experiencia</a>
-                    <a href="#skills" class="text-gray-300 hover:text-amber-400 block px-3 py-2 rounded-md text-base font-medium">Habilidades</a>
-                    <a href="#contact" class="text-gray-300 hover:text-amber-400 block px-3 py-2 rounded-md text-base font-medium">Contacto</a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Sobre mí</a>
+                    <a href="#experience" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Experiencia</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Habilidades</a>
+                    <a href="#contact" class="px-4 py-2 text-sm font-medium text-amber-950 bg-amber-500 rounded-full hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20">
+                        Contacto
+                    </a>
+                </div>
+
+                <!-- Mobile Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
                 </div>
             </div>
-        </header>
+        </div>
 
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Hero Section -->
-            <section id="hero" class="min-h-screen flex items-center pt-20 pb-10">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
-                    <div class="scroll-reveal">
-                        <p class="text-amber-400 font-medium mb-2">Hola, mi nombre es</p>
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-50 mb-4">
-                            Eduardo Bader.
-                        </h1>
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-400 mb-6">
-                            Construyo soluciones para la web.
-                        </h2>
-                        <p class="text-lg leading-relaxed mb-8 max-w-xl">
-                           Soy un ingeniero de software especializado en backend, enfocado en crear sistemas escalables e integraciones complejas, con un interés especial en la nueva era de la IA.
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="https://www.linkedin.com/in/eduardobader/" target="_blank" rel="noopener noreferrer" class="bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3 px-8 rounded-md transition-all duration-300 shadow-lg shadow-amber-500/10">
-                                Ver mi LinkedIn
-                            </a>
-                        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-800">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#about" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Sobre mí</a>
+                <a href="#experience" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Experiencia</a>
+                <a href="#skills" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Habilidades</a>
+                <a href="#contact" class="mobile-link block px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-amber-500 text-slate-900">Contactar</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center pt-20">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
+                
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1 opacity-0 animate-on-scroll" style="--delay: 100ms">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-semibold tracking-wide uppercase mb-6">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse mr-2"></span>
+                        Disponible para proyectos
                     </div>
-                    <div class="flex justify-center items-center scroll-reveal" style="transition-delay: 200ms;">
-                        <div class="relative w-80 h-80 lg:w-96 lg:h-96">
-                            <div class="absolute inset-0 bg-gray-800 rounded-lg transform rotate-6"></div>
+                    
+                    <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                        Eduardo <br/>
+                        <span class="text-gradient">Bader.</span>
+                    </h1>
+                    
+                    <p class="text-xl text-slate-400 mb-8 leading-relaxed max-w-lg">
+                        Ingeniero de Software especializado en <span class="text-slate-200 font-semibold">Backend</span> y <span class="text-slate-200 font-semibold">Arquitectura de Sistemas</span>. Construyo puentes entre datos complejos y soluciones escalables.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://www.linkedin.com/in/eduardobader/" target="_blank" class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-amber-500 px-8 font-medium text-slate-950 transition-all duration-300 hover:bg-white hover:text-amber-600 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+                            <span class="mr-2">LinkedIn</span>
+                            <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                        </a>
+                        <a href="#experience" class="inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-slate-800/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white hover:border-slate-600">
+                            Ver Experiencia
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image/Visual -->
+                <div class="order-1 lg:order-2 flex justify-center relative opacity-0 animate-on-scroll" style="--delay: 300ms">
+                    <div class="relative w-72 h-72 sm:w-96 sm:h-96 group">
+                        <!-- Decorative frames -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                        <div class="relative h-full w-full rounded-2xl bg-slate-900 overflow-hidden border border-slate-800 shadow-2xl">
+                            <!-- Placeholder logic applied if image missing, styled if present -->
                             <img src="./yo.jpg" 
-                                 alt="Foto de perfil de Eduardo Bader"
-                                 class="relative w-full h-full object-cover rounded-lg shadow-2xl">
+                                 alt="Eduardo Bader" 
+                                 class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-500 ease-in-out"
+                                 onerror="this.src='https://ui-avatars.com/api/?name=Eduardo+Bader&background=0B0C10&color=fbbf24&size=512&font-size=0.33'">
+                            
+                            <!-- Overlay gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                        </div>
+                        
+                        <!-- Floating Tech Badges -->
+                        <div class="absolute -right-6 top-10 glass px-4 py-2 rounded-lg shadow-xl animate-bounce" style="animation-duration: 3s;">
+                            <span class="text-amber-400 font-bold text-sm">Python</span>
+                        </div>
+                        <div class="absolute -left-6 bottom-20 glass px-4 py-2 rounded-lg shadow-xl animate-bounce" style="animation-duration: 4s;">
+                            <span class="text-green-400 font-bold text-sm">Node.js</span>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- About Section -->
-            <section id="about" class="py-24 scroll-reveal">
-                <h2 class="text-3xl font-bold section-title mb-12">Sobre Mí</h2>
-                <div class="card p-8 rounded-lg">
-                    <p class="text-lg leading-relaxed mb-4">
-                        Mi especialidad es la arquitectura e implementación de soluciones robustas para procesar flujos de datos de alto volumen, garantizando una conectividad perfecta entre plataformas de nivel empresarial.
+        <!-- About Section -->
+        <section id="about" class="py-24 relative">
+            <div class="glass rounded-3xl p-8 md:p-12 border border-white/5 opacity-0 animate-on-scroll">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="md:col-span-1">
+                        <h2 class="font-heading text-3xl font-bold text-white mb-4">Sobre mí</h2>
+                        <div class="h-1 w-20 bg-amber-500 rounded-full mb-6"></div>
+                        <p class="text-slate-400 text-sm font-mono">
+                            // SYSTEM_ARCHITECT<br>
+                            // AI_ENTHUSIAST<br>
+                            // PROBLEM_SOLVER
+                        </p>
+                    </div>
+                    <div class="md:col-span-2 space-y-6">
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            Mi especialidad es la arquitectura e implementación de soluciones robustas para procesar flujos de datos de alto volumen, garantizando una conectividad perfecta entre plataformas de nivel empresarial.
+                        </p>
+                        <p class="text-lg text-slate-300 leading-relaxed">
+                            Poseo experiencia práctica con protocolos de comunicación de IA emergentes, como <span class="text-amber-400">Agent-to-Agent (A2A)</span> y <span class="text-amber-400">Model Context Protocol</span>, lo que me permite contribuir al desarrollo de sistemas inteligentes de próxima generación.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section (Timeline) -->
+        <section id="experience" class="py-20">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-center mb-16 text-white opacity-0 animate-on-scroll">
+                Trayectoria <span class="text-gradient">Profesional</span>
+            </h2>
+
+            <div class="relative border-l-2 border-slate-800 ml-3 md:ml-1/2 space-y-12">
+                
+                <!-- Item 1 -->
+                <div class="relative pl-8 md:pl-0 opacity-0 animate-on-scroll">
+                    <!-- Dot -->
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-amber-500 border-4 border-slate-950 shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
+                    
+                    <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
+                        <div class="md:text-right md:pr-12 mb-2 md:mb-0">
+                            <span class="text-amber-400 font-mono text-sm">Jul 2021 - Presente</span>
+                            <h3 class="text-2xl font-heading font-bold text-white mt-1">Software Engineer</h3>
+                            <p class="text-slate-400 font-medium">Tracestory</p>
+                        </div>
+                        <div class="md:pl-12">
+                            <p class="text-slate-400 leading-relaxed">
+                                Desarrollo de sistemas core y optimización de procesos backend. Liderazgo en la implementación de nuevas arquitecturas escalables.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="relative pl-8 md:pl-0 opacity-0 animate-on-scroll">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+                    
+                    <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
+                        <div class="md:text-right md:pr-12 mb-2 md:mb-0">
+                            <span class="text-slate-500 font-mono text-sm">Feb 2021 - Mar 2024</span>
+                            <h3 class="text-xl font-heading font-bold text-slate-200 mt-1">Backend Engineer</h3>
+                            <p class="text-slate-500 font-medium">QRoom LLC</p>
+                        </div>
+                        <div class="md:pl-12">
+                            <p class="text-slate-400 leading-relaxed">
+                                Especialización en microservicios y bases de datos de alto rendimiento. Integración de APIs complejas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="relative pl-8 md:pl-0 opacity-0 animate-on-scroll">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+                    <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
+                        <div class="md:text-right md:pr-12 mb-2 md:mb-0">
+                            <span class="text-slate-500 font-mono text-sm">Ago 2020 - May 2024</span>
+                            <h3 class="text-xl font-heading font-bold text-slate-200 mt-1">Ingeniero de Software</h3>
+                            <p class="text-slate-500 font-medium">NuxtuLabs</p>
+                        </div>
+                        <div class="md:pl-12">
+                            <p class="text-slate-400 leading-relaxed">
+                                Desarrollo full-stack con énfasis en la lógica de negocio y seguridad de datos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="relative pl-8 md:pl-0 opacity-0 animate-on-scroll">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+                    <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
+                        <div class="md:text-right md:pr-12 mb-2 md:mb-0">
+                            <span class="text-slate-500 font-mono text-sm">Ago 2019 - Feb 2021</span>
+                            <h3 class="text-xl font-heading font-bold text-slate-200 mt-1">Freelance</h3>
+                            <p class="text-slate-500 font-medium">Autónomo</p>
+                        </div>
+                        <div class="md:pl-12">
+                            <p class="text-slate-400 leading-relaxed">
+                                Consultoría técnica y desarrollo de soluciones a medida para diversos clientes internacionales.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24">
+            <div class="text-center mb-16 opacity-0 animate-on-scroll">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Arsenal <span class="text-gradient">Tecnológico</span></h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Herramientas y tecnologías que utilizo para construir el futuro.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Category 1 -->
+                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-amber-500/30 opacity-0 animate-on-scroll">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-amber-500/10 rounded-lg text-amber-500 mr-4">
+                            <i data-lucide="code-2" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Lenguajes</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Python</span>
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Node.js</span>
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">JavaScript</span>
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Flask</span>
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Pandas</span>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-blue-500/30 opacity-0 animate-on-scroll" style="--delay: 100ms">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-blue-500/10 rounded-lg text-blue-500 mr-4">
+                            <i data-lucide="database" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Data</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">PostgreSQL</span>
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">MongoDB</span>
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">MySQL</span>
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Firebase</span>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-purple-500/30 opacity-0 animate-on-scroll" style="--delay: 200ms">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-purple-500/10 rounded-lg text-purple-500 mr-4">
+                            <i data-lucide="cloud" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Infraestructura</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">AWS</span>
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Google Cloud</span>
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Docker</span>
+                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Git</span>
+                    </div>
+                </div>
+                
+                <!-- Category 4 -->
+                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-green-500/30 md:col-span-2 lg:col-span-3 opacity-0 animate-on-scroll" style="--delay: 300ms">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-green-500/10 rounded-lg text-green-500 mr-4">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Competencias Core</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Arquitectura Backend</span>
+                        <span class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Desarrollo de API RESTful</span>
+                        <span class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Integración de IA</span>
+                        <span class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Agile & Scrum</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / Footer Section -->
+        <footer id="contact" class="py-24 opacity-0 animate-on-scroll">
+            <div class="glass rounded-3xl p-10 md:p-20 text-center relative overflow-hidden group">
+                <!-- Background Gradient Effect -->
+                <div class="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">¿Listo para el siguiente nivel?</h2>
+                    <p class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+                        Estoy disponible para nuevas oportunidades y colaboraciones técnicas. Construyamos algo extraordinario.
                     </p>
-                    <p class="text-lg leading-relaxed">
-                        Poseo experiencia práctica con protocolos de comunicación de IA emergentes, como Agent-to-Agent (A2A) y Model Context Protocol, lo que me permite contribuir al desarrollo de sistemas inteligentes de próxima generación. Me apasiona resolver problemas complejos y crear software eficiente y escalable.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Experience Section -->
-            <section id="experience" class="py-24 scroll-reveal">
-                <h2 class="text-3xl font-bold section-title mb-12">Experiencia Profesional</h2>
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="card p-6 rounded-lg">
-                        <p class="text-sm text-amber-400 mb-1">Jul 2021 - Actualidad</p>
-                        <h3 class="text-xl font-bold text-gray-50">Software Engineer</h3>
-                        <p class="text-md text-gray-400">Tracestory</p>
-                    </div>
-                    <div class="card p-6 rounded-lg">
-                        <p class="text-sm text-amber-400 mb-1">Feb 2021 - Mar 2024</p>
-                        <h3 class="text-xl font-bold text-gray-50">Backend Engineer</h3>
-                        <p class="text-md text-gray-400">QRoom LLC</p>
-                    </div>
-                     <div class="card p-6 rounded-lg">
-                        <p class="text-sm text-amber-400 mb-1">Ago 2020 - May 2024</p>
-                        <h3 class="text-xl font-bold text-gray-50">Ingeniero de software</h3>
-                        <p class="text-md text-gray-400">NuxtuLabs</p>
-                    </div>
-                     <div class="card p-6 rounded-lg">
-                        <p class="text-sm text-amber-400 mb-1">Ago 2019 - Feb 2021</p>
-                        <h3 class="text-xl font-bold text-gray-50">Freelance Software Engineer</h3>
-                        <p class="text-md text-gray-400">Autónomo</p>
-                    </div>
-                 </div>
-            </section>
-            
-            <!-- Skills Section -->
-            <section id="skills" class="py-24 scroll-reveal">
-                <h2 class="text-3xl font-bold section-title mb-12">Habilidades Principales</h2>
-                <div class="card p-8 rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-                        <div>
-                            <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center"><i data-lucide="code-2" class="w-5 h-5 mr-2"></i>Lenguajes y Frameworks</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Python</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Node.js</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">JavaScript</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Flask</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Pandas</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center"><i data-lucide="database" class="w-5 h-5 mr-2"></i>Bases de Datos</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">MySQL</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">MongoDB</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">PostgreSQL</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Firebase</span>
-                            </div>
-                        </div>
-                        <div>
-                             <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center"><i data-lucide="cloud-cog" class="w-5 h-5 mr-2"></i>Cloud & DevOps</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Amazon Web Services (AWS)</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Google Cloud</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Git</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-amber-400 mb-4 flex items-center"><i data-lucide="puzzle" class="w-5 h-5 mr-2"></i>Otros</h3>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Arquitectura Backend</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Desarrollo de API</span>
-                                <span class="skill-tag text-sm font-medium px-4 py-1.5 rounded-md">Metodologías Ágiles</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Contact & Footer -->
-        <footer id="contact" class="mt-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center scroll-reveal">
-                <h2 class="text-3xl font-bold text-gray-50 mb-4">¿Interesado en colaborar?</h2>
-                <p class="text-lg mb-8 max-w-2xl mx-auto">
-                    Estoy abierto a nuevas oportunidades y me encantaría saber de ti. ¡Envíame un mensaje y empecemos una conversación!
-                </p>
-                <a href="mailto:badereduardo@gmail.com" class="inline-block bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3 px-8 rounded-md transition-all duration-300 mb-12 shadow-lg shadow-amber-500/10">
-                    Enviar Email
-                </a>
-                <div class="flex justify-center space-x-6 mb-8">
-                    <a href="https://www.linkedin.com/in/eduardobader/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">
-                        <i data-lucide="linkedin" class="w-7 h-7"></i>
+                    
+                    <a href="mailto:badereduardo@gmail.com" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-900 bg-amber-500 rounded-full hover:bg-amber-400 hover:scale-105 transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
+                        Iniciar Conversación
                     </a>
-                    <a href="https://github.com/elbader17" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-amber-400 transition-colors duration-300">
-                        <i data-lucide="github" class="w-7 h-7"></i>
-                    </a>
+
+                    <div class="mt-16 flex justify-center space-x-8">
+                        <a href="https://www.linkedin.com/in/eduardobader/" target="_blank" class="text-slate-400 hover:text-white transition-colors transform hover:-translate-y-1">
+                            <i data-lucide="linkedin" class="w-8 h-8"></i>
+                        </a>
+                        <a href="https://github.com/elbader17" target="_blank" class="text-slate-400 hover:text-white transition-colors transform hover:-translate-y-1">
+                            <i data-lucide="github" class="w-8 h-8"></i>
+                        </a>
+                    </div>
+
+                    <div class="mt-12 border-t border-white/5 pt-8">
+                        <p class="text-slate-500 text-sm">© 2024 Eduardo Bader. Todos los derechos reservados.</p>
+                    </div>
                 </div>
-                <p class="text-gray-500 text-sm">
-                    &copy; 2024 Eduardo Bader.
-                </p>
             </div>
         </footer>
-    </div>
+
+    </main>
 
     <script>
-        // --- Lucide Icons ---
+        // --- Initialize Icons ---
         lucide.createIcons();
 
-        // --- Mobile Menu ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        // --- Mobile Menu Logic ---
+        const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
+        let isMenuOpen = false;
 
-        mobileMenuButton.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.toggle('hidden');
-            menuIcon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+            }
             lucide.createIcons();
         });
-        
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
-                 mobileMenu.classList.add('hidden');
-                 menuIcon.setAttribute('data-lucide', 'menu');
-                 lucide.createIcons();
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                menuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+                lucide.createIcons();
             });
         });
 
-        // --- Header scroll effect ---
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                header.classList.add('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
-            } else {
-                header.classList.remove('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
-            }
-        });
-
-        // --- Scroll Reveal Animation ---
-        const revealElements = document.querySelectorAll('.scroll-reveal');
+        // --- Scroll Reveal Animation (Intersection Observer) ---
         const observerOptions = {
             root: null,
             rootMargin: '0px',
             threshold: 0.1
         };
+
         const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry, index) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Optional delay for staggered effect, can be added if needed
-                    // entry.target.style.transitionDelay = `${index * 100}ms`;
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Unobserve after animating
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
-        revealElements.forEach(el => observer.observe(el));
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
     </script>
 </body>
-
 </html>
-
-
