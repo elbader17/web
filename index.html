@@ -7,11 +7,13 @@
     <title>Eduardo Bader | Senior Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -24,7 +26,7 @@
                     colors: {
                         dark: '#0B0C10',
                         card: '#1F2833',
-                        primary: '#66FCF1', 
+                        primary: '#66FCF1',
                         accent: '#45A29E',
                         gold: '#F59E0B',
                         goldlight: '#FCD34D',
@@ -51,22 +53,26 @@
     </script>
     <style>
         body {
-            background-color: #020617; /* Slate 950 */
+            background-color: #020617;
+            /* Slate 950 */
             color: #e2e8f0;
             overflow-x: hidden;
         }
-        
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0f172a;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #334155;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #475569;
         }
@@ -107,7 +113,9 @@
     <!-- Ambient Background Effects -->
     <div class="orb w-96 h-96 bg-purple-900/30 top-0 left-0 animate-blob"></div>
     <div class="orb w-96 h-96 bg-amber-900/20 bottom-0 right-0 animate-blob animation-delay-2000"></div>
-    <div class="orb w-64 h-64 bg-blue-900/20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-blob animation-delay-4000"></div>
+    <div
+        class="orb w-64 h-64 bg-blue-900/20 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-blob animation-delay-4000">
+    </div>
 
     <!-- Navbar -->
     <header class="fixed w-full top-0 z-50 transition-all duration-300 glass-nav" id="navbar">
@@ -115,15 +123,23 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 cursor-pointer group" onclick="window.scrollTo(0,0)">
-                    <span class="font-heading text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">EB<span class="text-amber-500">.</span></span>
+                    <span
+                        class="font-heading text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">EB<span
+                            class="text-amber-500">.</span></span>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Sobre mí</a>
-                    <a href="#experience" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Experiencia</a>
-                    <a href="#skills" class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Habilidades</a>
-                    <a href="#contact" class="px-4 py-2 text-sm font-medium text-amber-950 bg-amber-500 rounded-full hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20">
+                    <a href="#about"
+                        class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Sobre mí</a>
+                    <a href="#experience"
+                        class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Experiencia</a>
+                    <a href="#skills"
+                        class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Habilidades</a>
+                    <a href="#projects"
+                        class="text-sm font-medium text-slate-300 hover:text-amber-400 transition-colors">Proyectos</a>
+                    <a href="#contact"
+                        class="px-4 py-2 text-sm font-medium text-amber-950 bg-amber-500 rounded-full hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20">
                         Contacto
                     </a>
                 </div>
@@ -140,10 +156,17 @@
         <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-b border-slate-800">
             <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#about" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Sobre mí</a>
-                <a href="#experience" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Experiencia</a>
-                <a href="#skills" class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Habilidades</a>
-                <a href="#contact" class="mobile-link block px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-amber-500 text-slate-900">Contactar</a>
+                <a href="#about"
+                    class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Sobre
+                    mí</a>
+                <a href="#experience"
+                    class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Experiencia</a>
+                <a href="#skills"
+                    class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Habilidades</a>
+                <a href="#projects"
+                    class="mobile-link block px-3 py-3 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Proyectos</a>
+                <a href="#contact"
+                    class="mobile-link block px-3 py-3 mt-4 text-center rounded-md text-base font-bold bg-amber-500 text-slate-900">Contactar</a>
             </div>
         </div>
     </header>
@@ -153,56 +176,74 @@
         <!-- Hero Section -->
         <section id="hero" class="min-h-screen flex items-center justify-center pt-20">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center w-full">
-                
+
                 <!-- Text Content -->
                 <div class="order-2 lg:order-1 opacity-0 animate-on-scroll" style="--delay: 100ms">
-                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-semibold tracking-wide uppercase mb-6">
+                    <div
+                        class="inline-flex items-center px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-semibold tracking-wide uppercase mb-6">
                         <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse mr-2"></span>
                         Disponible para proyectos
                     </div>
-                    
-                    <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-                        Eduardo <br/>
+
+                    <h1
+                        class="font-heading text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-tight">
+                        Eduardo <br />
                         <span class="text-gradient">Bader.</span>
                     </h1>
-                    
+
                     <p class="text-xl text-slate-400 mb-8 leading-relaxed max-w-lg">
-                        Ingeniero de Software especializado en <span class="text-slate-200 font-semibold">Backend</span> y <span class="text-slate-200 font-semibold">Arquitectura de Sistemas</span>. Construyo puentes entre datos complejos y soluciones escalables.
+                        Ingeniero de Software especializado en <span class="text-slate-200 font-semibold">Backend</span>
+                        y <span class="text-slate-200 font-semibold">Arquitectura de Sistemas</span>. Construyo puentes
+                        entre datos complejos y soluciones escalables.
                     </p>
 
                     <div class="flex flex-wrap gap-4">
-                        <a href="https://www.linkedin.com/in/eduardobader/" target="_blank" class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-amber-500 px-8 font-medium text-slate-950 transition-all duration-300 hover:bg-white hover:text-amber-600 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+                        <a href="https://www.linkedin.com/in/eduardobader/" target="_blank"
+                            class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-amber-500 px-8 font-medium text-slate-950 transition-all duration-300 hover:bg-white hover:text-amber-600 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-slate-900">
                             <span class="mr-2">LinkedIn</span>
-                            <i data-lucide="arrow-up-right" class="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
+                            <i data-lucide="arrow-up-right"
+                                class="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"></i>
                         </a>
-                        <a href="#experience" class="inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-slate-800/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white hover:border-slate-600">
+                        <a href="#experience"
+                            class="inline-flex h-12 items-center justify-center rounded-md border border-slate-700 bg-slate-800/50 px-8 font-medium text-slate-300 transition-colors hover:bg-slate-800 hover:text-white hover:border-slate-600">
                             Ver Experiencia
                         </a>
                     </div>
                 </div>
 
                 <!-- Image/Visual -->
-                <div class="order-1 lg:order-2 flex justify-center relative opacity-0 animate-on-scroll" style="--delay: 300ms">
+                <div class="order-1 lg:order-2 flex justify-center relative opacity-0 animate-on-scroll"
+                    style="--delay: 300ms">
                     <div class="relative w-72 h-72 sm:w-96 sm:h-96 group">
                         <!-- Decorative frames -->
-                        <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-                        <div class="relative h-full w-full rounded-2xl bg-slate-900 overflow-hidden border border-slate-800 shadow-2xl">
-                            <!-- Placeholder logic applied if image missing, styled if present -->
-                            <img src="./yo.jpg" 
-                                 alt="Eduardo Bader" 
-                                 class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-500 ease-in-out"
-                                 onerror="this.src='https://ui-avatars.com/api/?name=Eduardo+Bader&background=0B0C10&color=fbbf24&size=512&font-size=0.33'">
-                            
-                            <!-- Overlay gradient -->
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"></div>
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200">
                         </div>
-                        
+                        <div
+                            class="relative h-full w-full rounded-2xl bg-slate-900 overflow-hidden border border-slate-800 shadow-2xl">
+                            <!-- Placeholder logic applied if image missing, styled if present -->
+                            <img src="./yo.jpg" alt="Eduardo Bader"
+                                class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition duration-500 ease-in-out"
+                                onerror="this.src='https://ui-avatars.com/api/?name=Eduardo+Bader&background=0B0C10&color=fbbf24&size=512&font-size=0.33'">
+
+                            <!-- Overlay gradient -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60">
+                            </div>
+                        </div>
+
                         <!-- Floating Tech Badges -->
-                        <div class="absolute -right-6 top-10 glass px-4 py-2 rounded-lg shadow-xl animate-bounce" style="animation-duration: 3s;">
+                        <div class="absolute -right-6 top-10 glass px-4 py-2 rounded-lg shadow-xl animate-bounce"
+                            style="animation-duration: 3s;">
                             <span class="text-amber-400 font-bold text-sm">Python</span>
                         </div>
-                        <div class="absolute -left-6 bottom-20 glass px-4 py-2 rounded-lg shadow-xl animate-bounce" style="animation-duration: 4s;">
+                        <div class="absolute -left-6 bottom-20 glass px-4 py-2 rounded-lg shadow-xl animate-bounce"
+                            style="animation-duration: 4s;">
                             <span class="text-green-400 font-bold text-sm">Node.js</span>
+                        </div>
+                        <div class="absolute -right-4 bottom-12 glass px-4 py-2 rounded-lg shadow-xl animate-bounce"
+                            style="animation-duration: 3.5s;">
+                            <span class="text-blue-400 font-bold text-sm">Golang</span>
                         </div>
                     </div>
                 </div>
@@ -224,10 +265,15 @@
                     </div>
                     <div class="md:col-span-2 space-y-6">
                         <p class="text-lg text-slate-300 leading-relaxed">
-                            Mi especialidad es la arquitectura e implementación de soluciones robustas para procesar flujos de datos de alto volumen, garantizando una conectividad perfecta entre plataformas de nivel empresarial.
+                            Mi especialidad es la arquitectura e implementación de soluciones robustas para procesar
+                            flujos de datos de alto volumen, garantizando una conectividad perfecta entre plataformas de
+                            nivel empresarial.
                         </p>
                         <p class="text-lg text-slate-300 leading-relaxed">
-                            Poseo experiencia práctica con protocolos de comunicación de IA emergentes, como <span class="text-amber-400">Agent-to-Agent (A2A)</span> y <span class="text-amber-400">Model Context Protocol</span>, lo que me permite contribuir al desarrollo de sistemas inteligentes de próxima generación.
+                            Poseo experiencia práctica con protocolos de comunicación de IA emergentes, como <span
+                                class="text-amber-400">Agent-to-Agent (A2A)</span> y <span class="text-amber-400">Model
+                                Context Protocol</span>, lo que me permite contribuir al desarrollo de sistemas
+                            inteligentes de próxima generación.
                         </p>
                     </div>
                 </div>
@@ -236,17 +282,20 @@
 
         <!-- Experience Section (Timeline) -->
         <section id="experience" class="py-20">
-            <h2 class="font-heading text-3xl md:text-4xl font-bold text-center mb-16 text-white opacity-0 animate-on-scroll">
+            <h2
+                class="font-heading text-3xl md:text-4xl font-bold text-center mb-16 text-white opacity-0 animate-on-scroll">
                 Trayectoria <span class="text-gradient">Profesional</span>
             </h2>
 
             <div class="relative border-l-2 border-slate-800 ml-3 md:ml-1/2 space-y-12">
-                
+
                 <!-- Item 1 -->
                 <div class="relative pl-8 md:pl-0 opacity-0 animate-on-scroll">
                     <!-- Dot -->
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-amber-500 border-4 border-slate-950 shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
-                    
+                    <div
+                        class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-amber-500 border-4 border-slate-950 shadow-[0_0_10px_rgba(245,158,11,0.5)]">
+                    </div>
+
                     <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
                         <div class="md:text-right md:pr-12 mb-2 md:mb-0">
                             <span class="text-amber-400 font-mono text-sm">Jul 2021 - Presente</span>
@@ -256,11 +305,18 @@
                         </div>
                         <div class="md:pl-12">
                             <ul class="space-y-3 text-slate-400 leading-relaxed list-disc marker:text-amber-500 pl-4">
-                                <li>Desarrollé e implementé de forma proactiva la mayoría de las funcionalidades core de la plataforma, desde la idea inicial hasta la puesta en producción, resolviendo bugs complejos y asegurando la estabilidad.</li>
-                                <li>Diseñé y construí los pipelines de datos para la extracción y procesamiento de grandes volúmenes de información desde fuentes diversas (PDF, Excel, CSV) y flujos de datos en tiempo real.</li>
-                                <li>Implementé y gestioné la evolución del sistema de autenticación, migrando de una solución inicial basada en JWT a una arquitectura robusta con Zitadel.</li>
-                                <li>Planifiqué y ejecuté exitosamente migraciones de datos a gran escala, asegurando la integridad y disponibilidad durante procesos críticos.</li>
-                                <li>Orquesté flujos de trabajo ETL/ELT complejos (Kestra) y contribuí a la implementación de protocolos de IA (A2A, MCP) en entornos cloud (AWS, GCP).</li>
+                                <li>Desarrollé e implementé de forma proactiva la mayoría de las funcionalidades core de
+                                    la plataforma, desde la idea inicial hasta la puesta en producción, resolviendo bugs
+                                    complejos y asegurando la estabilidad.</li>
+                                <li>Diseñé y construí los pipelines de datos para la extracción y procesamiento de
+                                    grandes volúmenes de información desde fuentes diversas (PDF, Excel, CSV) y flujos
+                                    de datos en tiempo real.</li>
+                                <li>Implementé y gestioné la evolución del sistema de autenticación, migrando de una
+                                    solución inicial basada en JWT a una arquitectura robusta con Zitadel.</li>
+                                <li>Planifiqué y ejecuté exitosamente migraciones de datos a gran escala, asegurando la
+                                    integridad y disponibilidad durante procesos críticos.</li>
+                                <li>Orquesté flujos de trabajo ETL/ELT complejos (Kestra) y contribuí a la
+                                    implementación de protocolos de IA (A2A, MCP) en entornos cloud (AWS, GCP).</li>
                             </ul>
                         </div>
                     </div>
@@ -268,8 +324,9 @@
 
                 <!-- Item 2 -->
                 <div class="relative pl-8 md:pl-0 opacity-0 animate-on-scroll">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
-                    
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950">
+                    </div>
+
                     <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
                         <div class="md:text-right md:pr-12 mb-2 md:mb-0">
                             <span class="text-slate-500 font-mono text-sm">Feb 2021 - Mar 2024</span>
@@ -278,7 +335,8 @@
                         </div>
                         <div class="md:pl-12">
                             <p class="text-slate-400 leading-relaxed">
-                                Especialización en microservicios y bases de datos de alto rendimiento. Integración de APIs complejas.
+                                Especialización en microservicios y bases de datos de alto rendimiento. Integración de
+                                APIs complejas.
                             </p>
                         </div>
                     </div>
@@ -286,7 +344,8 @@
 
                 <!-- Item 3 -->
                 <div class="relative pl-8 md:pl-0 opacity-0 animate-on-scroll">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950">
+                    </div>
                     <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
                         <div class="md:text-right md:pr-12 mb-2 md:mb-0">
                             <span class="text-slate-500 font-mono text-sm">Ago 2020 - May 2024</span>
@@ -303,7 +362,8 @@
 
                 <!-- Item 4 -->
                 <div class="relative pl-8 md:pl-0 opacity-0 animate-on-scroll">
-                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950">
+                    </div>
                     <div class="md:grid md:grid-cols-2 md:gap-12 items-start">
                         <div class="md:text-right md:pr-12 mb-2 md:mb-0">
                             <span class="text-slate-500 font-mono text-sm">Ago 2019 - Feb 2021</span>
@@ -312,7 +372,8 @@
                         </div>
                         <div class="md:pl-12">
                             <p class="text-slate-400 leading-relaxed">
-                                Consultoría técnica y desarrollo de soluciones a medida para diversos clientes internacionales.
+                                Consultoría técnica y desarrollo de soluciones a medida para diversos clientes
+                                internacionales.
                             </p>
                         </div>
                     </div>
@@ -323,14 +384,17 @@
         <!-- Skills Section -->
         <section id="skills" class="py-24">
             <div class="text-center mb-16 opacity-0 animate-on-scroll">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Arsenal <span class="text-gradient">Tecnológico</span></h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">Herramientas y tecnologías que utilizo para construir el futuro.</p>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Arsenal <span
+                        class="text-gradient">Tecnológico</span></h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Herramientas y tecnologías que utilizo para construir el
+                    futuro.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
+
                 <!-- Category 1 -->
-                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-amber-500/30 opacity-0 animate-on-scroll">
+                <div
+                    class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-amber-500/30 opacity-0 animate-on-scroll">
                     <div class="flex items-center mb-6">
                         <div class="p-3 bg-amber-500/10 rounded-lg text-amber-500 mr-4">
                             <i data-lucide="code-2" class="w-6 h-6"></i>
@@ -338,16 +402,22 @@
                         <h3 class="text-xl font-bold text-white">Lenguajes</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Python</span>
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Node.js</span>
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">JavaScript</span>
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Flask</span>
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Pandas</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Python</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Node.js</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">JavaScript</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Flask</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Pandas</span>
                     </div>
                 </div>
 
                 <!-- Category 2 -->
-                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-blue-500/30 opacity-0 animate-on-scroll" style="--delay: 100ms">
+                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-blue-500/30 opacity-0 animate-on-scroll"
+                    style="--delay: 100ms">
                     <div class="flex items-center mb-6">
                         <div class="p-3 bg-blue-500/10 rounded-lg text-blue-500 mr-4">
                             <i data-lucide="database" class="w-6 h-6"></i>
@@ -355,15 +425,20 @@
                         <h3 class="text-xl font-bold text-white">Data</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">PostgreSQL</span>
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">MongoDB</span>
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">MySQL</span>
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Firebase</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">PostgreSQL</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">MongoDB</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">MySQL</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Firebase</span>
                     </div>
                 </div>
 
                 <!-- Category 3 -->
-                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-purple-500/30 opacity-0 animate-on-scroll" style="--delay: 200ms">
+                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-purple-500/30 opacity-0 animate-on-scroll"
+                    style="--delay: 200ms">
                     <div class="flex items-center mb-6">
                         <div class="p-3 bg-purple-500/10 rounded-lg text-purple-500 mr-4">
                             <i data-lucide="cloud" class="w-6 h-6"></i>
@@ -371,15 +446,21 @@
                         <h3 class="text-xl font-bold text-white">Infraestructura</h3>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">AWS</span>
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Google Cloud</span>
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Docker</span>
-                        <span class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Git</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">AWS</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Google
+                            Cloud</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Docker</span>
+                        <span
+                            class="px-3 py-1 text-sm rounded-md bg-slate-800 text-slate-300 border border-slate-700">Git</span>
                     </div>
                 </div>
-                
+
                 <!-- Category 4 -->
-                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-green-500/30 md:col-span-2 lg:col-span-3 opacity-0 animate-on-scroll" style="--delay: 300ms">
+                <div class="glass p-6 rounded-2xl hover:bg-slate-800/50 transition duration-300 border-t border-transparent hover:border-green-500/30 md:col-span-2 lg:col-span-3 opacity-0 animate-on-scroll"
+                    style="--delay: 300ms">
                     <div class="flex items-center mb-6">
                         <div class="p-3 bg-green-500/10 rounded-lg text-green-500 mr-4">
                             <i data-lucide="cpu" class="w-6 h-6"></i>
@@ -387,10 +468,88 @@
                         <h3 class="text-xl font-bold text-white">Competencias Core</h3>
                     </div>
                     <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Arquitectura Backend</span>
-                        <span class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Desarrollo de API RESTful</span>
-                        <span class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Integración de IA</span>
-                        <span class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Agile & Scrum</span>
+                        <span
+                            class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Arquitectura
+                            Backend</span>
+                        <span
+                            class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Desarrollo
+                            de API RESTful</span>
+                        <span
+                            class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Integración
+                            de IA</span>
+                        <span
+                            class="px-4 py-2 text-sm font-medium rounded-full bg-slate-800/50 text-green-400 border border-green-500/20">Agile
+                            & Scrum</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 relative">
+            <div class="text-center mb-16 opacity-0 animate-on-scroll">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-4">Proyectos <span
+                        class="text-gradient">Destacados</span></h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Herramientas open source que he desarrollado para potenciar
+                    la productividad y seguridad.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Agron -->
+                <div
+                    class="glass p-8 rounded-3xl border border-white/5 hover:border-amber-500/30 transition-all duration-300 group opacity-0 animate-on-scroll">
+                    <div class="flex justify-between items-start mb-6">
+                        <div
+                            class="p-3 bg-amber-500/10 rounded-xl text-amber-500 group-hover:scale-110 transition-transform">
+                            <i data-lucide="shield" class="w-8 h-8"></i>
+                        </div>
+                        <a href="https://elbader17.github.io/agron-web/" target="_blank"
+                            class="text-slate-400 hover:text-white transition-colors">
+                            <i data-lucide="external-link" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Agron</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Librería ligera en Go para encriptación autenticada AES-GCM con gestores de claves conectables.
+                        Ofrece una solución segura y sin dependencias externas para la gestión de secretos.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 text-xs font-medium rounded-full bg-slate-800 text-amber-400 border border-amber-500/20">Golang</span>
+                        <span
+                            class="px-3 py-1 text-xs font-medium rounded-full bg-slate-800 text-amber-400 border border-amber-500/20">Security</span>
+                        <span
+                            class="px-3 py-1 text-xs font-medium rounded-full bg-slate-800 text-amber-400 border border-amber-500/20">Cryptography</span>
+                    </div>
+                </div>
+
+                <!-- Blueprint -->
+                <div class="glass p-8 rounded-3xl border border-white/5 hover:border-cyan-500/30 transition-all duration-300 group opacity-0 animate-on-scroll"
+                    style="--delay: 100ms">
+                    <div class="flex justify-between items-start mb-6">
+                        <div
+                            class="p-3 bg-cyan-500/10 rounded-xl text-cyan-400 group-hover:scale-110 transition-transform">
+                            <i data-lucide="layout-template" class="w-8 h-8"></i>
+                        </div>
+                        <a href="https://blueprintcli.online/" target="_blank"
+                            class="text-slate-400 hover:text-white transition-colors">
+                            <i data-lucide="external-link" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Blueprint CLI</h3>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        CLI para generar APIs REST completas a partir de definiciones simples. Automatiza la creación de
+                        endpoints, documentación Swagger, tests y configuraciones de despliegue.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1 text-xs font-medium rounded-full bg-slate-800 text-cyan-400 border border-cyan-500/20">CLI
+                            Tool</span>
+                        <span
+                            class="px-3 py-1 text-xs font-medium rounded-full bg-slate-800 text-cyan-400 border border-cyan-500/20">Code
+                            Generation</span>
+                        <span
+                            class="px-3 py-1 text-xs font-medium rounded-full bg-slate-800 text-cyan-400 border border-cyan-500/20">Productivity</span>
                     </div>
                 </div>
             </div>
@@ -400,24 +559,31 @@
         <footer id="contact" class="py-24 opacity-0 animate-on-scroll">
             <div class="glass rounded-3xl p-10 md:p-20 text-center relative overflow-hidden group">
                 <!-- Background Gradient Effect -->
-                <div class="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition duration-700"></div>
-                
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition duration-700">
+                </div>
+
                 <div class="relative z-10">
-                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">¿Listo para el siguiente nivel?</h2>
+                    <h2 class="font-heading text-4xl md:text-5xl font-bold text-white mb-6">¿Listo para el siguiente
+                        nivel?</h2>
                     <p class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-                        Estoy disponible para nuevas oportunidades y colaboraciones técnicas. Construyamos algo extraordinario.
+                        Estoy disponible para nuevas oportunidades y colaboraciones técnicas. Construyamos algo
+                        extraordinario.
                     </p>
-                    
-                    <a href="mailto:badereduardo@gmail.com" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-900 bg-amber-500 rounded-full hover:bg-amber-400 hover:scale-105 transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]">
+
+                    <a href="mailto:badereduardo@gmail.com"
+                        class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-900 bg-amber-500 rounded-full hover:bg-amber-400 hover:scale-105 transition-all shadow-[0_0_20px_rgba(245,158,11,0.3)]">
                         <i data-lucide="mail" class="w-5 h-5 mr-2"></i>
                         Iniciar Conversación
                     </a>
 
                     <div class="mt-16 flex justify-center space-x-8">
-                        <a href="https://www.linkedin.com/in/eduardobader/" target="_blank" class="text-slate-400 hover:text-white transition-colors transform hover:-translate-y-1">
+                        <a href="https://www.linkedin.com/in/eduardobader/" target="_blank"
+                            class="text-slate-400 hover:text-white transition-colors transform hover:-translate-y-1">
                             <i data-lucide="linkedin" class="w-8 h-8"></i>
                         </a>
-                        <a href="https://github.com/elbader17" target="_blank" class="text-slate-400 hover:text-white transition-colors transform hover:-translate-y-1">
+                        <a href="https://github.com/elbader17" target="_blank"
+                            class="text-slate-400 hover:text-white transition-colors transform hover:-translate-y-1">
                             <i data-lucide="github" class="w-8 h-8"></i>
                         </a>
                     </div>
@@ -483,4 +649,5 @@
         });
     </script>
 </body>
+
 </html>
