@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Custom shortcuts that were in uno-config.js */
+  .glass-panel {
+    @apply bg-zinc-900/70 backdrop-blur-xl border border-zinc-800 rounded-2xl;
+  }
+  .glass-nav {
+    @apply bg-zinc-950 backdrop-blur-md;
+  }
+  .glow-emerald {
+    box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.55);
+  }
+  .text-gradient-emerald {
+    @apply bg-gradient-to-r from-emerald-300 via-emerald-500 to-emerald-300 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient-x;
+  }
+  .btn-cyber-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-emerald-500 text-zinc-950 font-semibold hover:bg-emerald-400 transition-all active:scale-[0.98] glow-emerald;
+  }
+  .btn-cyber-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-zinc-700 text-zinc-200 hover:border-emerald-500/60 hover:text-emerald-300 transition-all;
+  }
+  .panel-card {
+    @apply glass-panel p-6 hover:border-emerald-500/40 transition-all duration-300;
+  }
+  .skill-chip {
+    @apply px-3 py-1 text-xs font-mono rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 hover:border-emerald-500/40 hover:text-emerald-300 transition-colors;
+  }
+  .core-chip {
+    @apply px-4 py-2 text-sm font-medium rounded-full bg-zinc-900 border border-emerald-500/30 text-emerald-300;
+  }
+  .nav-link {
+    @apply text-sm font-medium text-zinc-300 hover:text-emerald-300 transition-colors relative inline-flex items-center min-h-[44px] px-1;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    bottom: 18px;
+    height: 1px;
+    width: 0;
+    background: #10b981;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after {
+    width: calc(100% - 8px);
+  }
+  .section-heading {
+    @apply text-3xl md:text-4xl font-display font-extrabold text-zinc-50 tracking-tight;
+  }
+  .mono-label {
+    @apply text-xs font-mono text-emerald-400/80 tracking-widest uppercase;
+  }
+  .footer-social {
+    @apply inline-flex items-center gap-3;
+  }
+  .footer-social-btn {
+    @apply inline-flex items-center justify-center w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-emerald-300 hover:border-emerald-500/40 transition-all;
+  }
+  .footer-social-icon {
+    @apply w-5 h-5 block;
+  }
+  .mobile-burger {
+    @apply inline-flex items-center justify-center w-10 h-10 flex-shrink-0;
+  }
+  .mobile-burger-icon {
+    @apply w-5 h-5 block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
