@@ -389,11 +389,18 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: 0.32em;
   text-transform: uppercase;
 }
-.section-eyebrow::before {
+.section-eyebrow::before,
+.section-eyebrow::after {
   content: '';
   width: 28px;
   height: 1px;
+  flex-shrink: 0;
+}
+.section-eyebrow::before {
   background: linear-gradient(90deg, #10b981 0%, rgba(16, 185, 129, 0.15) 100%);
+}
+.section-eyebrow::after {
+  background: linear-gradient(270deg, #10b981 0%, rgba(16, 185, 129, 0.15) 100%);
 }
 
 /* ---------- Shimmer Stat ---------- */
@@ -447,6 +454,15 @@ a { text-decoration: none; color: inherit; }
   height: 20px;
   display: block;
   color: inherit;
+}
+
+/* ---------- Language Switcher ---------- */
+.lang-switch-btn {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+.lang-switch-btn.is-active {
+  color: #6ee7b7;
+  background-color: rgba(16, 185, 129, 0.12);
 }
 /* Explicit desktop hide so the button never leaks into the md+ layout
    even if Tailwind utilities lag (defensive — CSS specificity tie). */

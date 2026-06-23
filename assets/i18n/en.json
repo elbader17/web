@@ -1,0 +1,141 @@
+{
+  "lang": "en",
+  "meta": {
+    "title": "Eduardo Bader · AI Automation Engineer",
+    "description": "Eduardo Bader — Software Developer & AI Automation Engineer. Specialist in backend architecture, multi-agent systems, automation and A2A/MCP protocols.",
+    "ogTitle": "Eduardo Bader · AI Automation Engineer",
+    "ogDescription": "Senior Software Engineer & AI Agent Orchestrator. Backend architecture, multi-agent systems, automation and A2A/MCP protocols.",
+    "twitterTitle": "Eduardo Bader · AI Automation Engineer",
+    "twitterDescription": "Senior Software Engineer & AI Agent Orchestrator. Backend architecture, multi-agent systems, automation and A2A/MCP protocols.",
+    "ogLocale": "en_US"
+  },
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu"
+  },
+  "hero": {
+    "badge": "Available · Q3 2026",
+    "subtitle": "Software Developer & <span class=\"text-zinc-100 font-semibold\">AI Automation Engineer</span>. I design backend architectures, deploy <span class=\"text-emerald-300\">multi-agent systems</span> and build <span class=\"text-emerald-300\">automation pipelines</span> that scale.",
+    "ctaContact": "Start a conversation",
+    "linkedin": "LinkedIn",
+    "seeExperience": "See experience"
+  },
+  "about": {
+    "eyebrow": "Profile",
+    "title": "About <span class=\"text-gradient-emerald\">me</span>",
+    "location": "Argentina · Remote-friendly",
+    "role": "Software Developer",
+    "roleAi": "AI Automation Engineer",
+    "roleArchitect": "Automation Architect",
+    "p1": "My specialty is <span class=\"text-emerald-300 font-semibold\">backend architecture</span> and the implementation of robust solutions to process high-volume data flows, ensuring seamless connectivity between enterprise-grade platforms.",
+    "p2": "In recent years I've deepened my focus on <span class=\"text-emerald-300 font-semibold\">multi-agent systems</span> and <span class=\"text-emerald-300 font-semibold\">intelligent task automation</span>. I design and operate pipelines where orchestrator agents coordinate specialized sub-agents (Planner, Executor, Critic) to autonomously solve complex problems, with human-in-the-loop validation.",
+    "p3": "I have hands-on experience with <span class=\"text-emerald-300 font-semibold\">A2A</span> (Agent-to-Agent) and <span class=\"text-emerald-300 font-semibold\">Model Context Protocol (MCP)</span>, as well as LangChain, LangGraph, Kestra, n8n and cloud stacks (AWS, GCP) to deploy these solutions at scale.",
+    "chips": [
+      "Multi-Agent Systems",
+      "Agent Orchestration",
+      "Sub-Agent Design",
+      "Task Automation",
+      "MCP / A2A",
+      "Workflow Pipelines"
+    ]
+  },
+  "skills": {
+    "eyebrow": "Arsenal",
+    "title": "<span class=\"text-gradient-emerald\">Tech</span> stack",
+    "subtitle": "Tools and frameworks I use to design, build and orchestrate intelligent systems and high-performance automation.",
+    "core": "Core Expertise",
+    "coreSubtitle": "orq · sub-agents · workflows · RAG · evals",
+    "coreName": "AI Agents & Automation",
+    "languages": "Languages",
+    "frameworks": "Frameworks",
+    "data": "Data",
+    "infrastructure": "Infrastructure",
+    "authSecurity": "Auth & Security",
+    "labels": {
+      "core": "Core Expertise"
+    }
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Professional <span class=\"text-gradient-emerald\">journey</span>",
+    "items": [
+      {
+        "date": "Jul 2021 — Present",
+        "role": "Software Engineer",
+        "company": "Tracestory",
+        "type": "Full-time · On-site",
+        "bullets": [
+          "Implemented core platform features, from initial idea to production, resolving complex bugs and ensuring stability.",
+          "Designed data pipelines for high-volume extraction and processing (PDF, Excel, CSV) and real-time flows.",
+          "Evolved the authentication system, migrating from JWT to a robust architecture with <span class=\"text-emerald-300\">Zitadel</span>.",
+          "Orchestrated <span class=\"text-emerald-300\">ETL/ELT</span> workflows with Kestra and implemented AI protocols (<span class=\"text-emerald-300\">A2A, MCP</span>) on AWS and GCP.",
+          "Designed and implemented <span class=\"text-emerald-300\">automation pipelines</span> with specialized sub-agents that reduce team manual tasks by 70%."
+        ]
+      },
+      {
+        "date": "Feb 2021 — Mar 2024",
+        "role": "Backend Engineer",
+        "company": "QRoom LLC",
+        "summary": "Specialization in microservices and high-performance databases. Complex API integration and internal automation design."
+      },
+      {
+        "date": "Aug 2020 — May 2024",
+        "role": "Software Engineer",
+        "company": "NuxtuLabs",
+        "summary": "Full-stack development focused on business logic, data security and process automation."
+      },
+      {
+        "date": "Aug 2019 — Feb 2021",
+        "role": "Freelance Engineer",
+        "company": "Self-employed",
+        "summary": "Technical consulting and bespoke solutions for international clients, including workflow automation."
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Open Source",
+    "title": "Featured <span class=\"text-gradient-emerald\">projects</span>",
+    "subtitle": "Open-source tools to boost security, productivity and orchestration.",
+    "agronDesc": "Lightweight Go library for AES-GCM authenticated encryption with pluggable key managers. Secure solution with no external dependencies for secrets management.",
+    "blueprintDesc": "CLI to generate complete REST APIs from simple definitions. Automates the creation of endpoints, Swagger documentation, tests and deployment configurations.",
+    "apophisDesc": "MCP server for OpenCode that orchestrates chaotic agents in parallel against a target: port scanning, web auditing, CVE matching against static + dynamic DB, sync from NVD/KEV/OSV/Exploit-DB and sandboxed PoC executor (L1/L2/L3).",
+    "tonDesc": "AI-First framework in Go that acts as an execution engine for <span class=\"text-emerald-300\">Singularity</span> (MCP). <span class=\"text-emerald-300\">Zero Magic</span> principles: minimal interfaces, typed errors, tools as primitives and isolated sandbox execution with <span class=\"text-emerald-300\">CLONE_NEWNET</span>.",
+    "openAgron": "Open Agron",
+    "openBlueprint": "Open Blueprint CLI",
+    "code": "Code",
+    "docs": "Docs",
+    "details": "Details"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Ready for the <span class=\"text-gradient-emerald\">next level</span>?",
+    "subtitle": "Available for new projects, technical consulting and collaborations in AI agent orchestration and automation at scale.",
+    "email": "badereduardo@gmail.com",
+    "linkedin": "LinkedIn",
+    "copyright": "© 2026 · All rights reserved"
+  },
+  "terminal": {
+    "title": "automation@eduardo-bader: ~/agent-stack",
+    "prompt": "┌──(eduardo@singularity)-[~]",
+    "lines": [
+      "└─$ ./agent.automation --init",
+      "[✓] Bootstrap .......... OK",
+      "[✓] MCP runtime ........ OK",
+      "[✓] A2A protocol ....... OK",
+      "[✓] Sub-agents online .. OK",
+      "[✓] Workflows ready .... OK",
+      "└─$ status --realtime",
+      "# network: online · latency: 24ms · uptime: 99.97%",
+      "└─$ _"
+    ]
+  },
+  "scroll": "scroll",
+  "planner": "Planner",
+  "executor": "Executor",
+  "critic": "Critic"
+}

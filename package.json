@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "build:css": "tailwindcss -i src/input.css -o assets/css/tw.css --minify",
+    "build:i18n": "python3 scripts/build_i18n.py",
     "build:inline": "python3 scripts/inline_css.py",
     "build:icons": "echo 'Icons inlined at top of body. Edit index.html <svg> sprite or scripts/replace_icons.py to change.'",
-    "build": "npm run build:css && npm run build:inline && npm run build:icons",
+    "build": "npm run build:css && npm run build:i18n && npm run build:inline && npm run build:icons",
     "lighthouse": "lighthouse http://localhost:8765/index.html --view --chrome-flags='--headless --no-sandbox'",
     "serve": "python3 -m http.server 8765"
   },

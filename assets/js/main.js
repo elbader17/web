@@ -66,7 +66,7 @@
   // ---------- Terminal Typing Sequence ----------
   const term = document.getElementById('terminal-body');
   if (term) {
-    const lines = [
+    const baseLines = [
       '<span class="terminal-prompt">┌──(</span><span class="terminal-ok">eduardo</span><span class="terminal-prompt">@</span><span class="terminal-ok">singularity</span><span class="terminal-prompt">)</span>-[<span class="terminal-warn">~</span>]',
       '<span class="terminal-prompt">└─$</span> <span class="terminal-cmd">./agent.automation --init</span>',
       '<span class="terminal-out">[</span><span class="terminal-ok">✓</span><span class="terminal-out">] Bootstrap .......... </span><span class="terminal-ok">OK</span>',
@@ -80,23 +80,33 @@
     ];
 
     let lineIdx = 0;
-    const caret = '<span class="terminal-caret"></span>';
+    let termStarted = false;
 
     const appendNext = () => {
-      if (lineIdx >= lines.length) return;
+      if (lineIdx >= baseLines.length) return;
       const lineDiv = document.createElement('div');
       lineDiv.className = 'terminal-line';
-      // Last line: strip the trailing caret span so it can re-render cleanly
-      const html = lines[lineIdx];
+      const html = baseLines[lineIdx];
       lineDiv.innerHTML = html;
       term.appendChild(lineDiv);
       lineIdx++;
-      // Keep only the last ~30 lines visible (avoid runaway DOM)
       while (term.children.length > 30) term.removeChild(term.firstChild);
       setTimeout(appendNext, 180);
     };
 
-    const kickoff = () => appendNext();
+    const reset = () => {
+      lineIdx = 0;
+      term.innerHTML = '';
+      termStarted = true;
+      appendNext();
+    };
+
+    const kickoff = () => {
+      if (termStarted) return;
+      termStarted = true;
+      appendNext();
+    };
+
     if ('IntersectionObserver' in window) {
       const tio = new IntersectionObserver(
         (entries) => {
@@ -113,6 +123,8 @@
     } else {
       kickoff();
     }
+
+    document.addEventListener('i18n:applied', reset);
   }
 
   // ---------- Animated Stat Counters ----------
